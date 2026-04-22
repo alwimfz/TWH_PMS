@@ -15,4 +15,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}' # GitHub's automatically generated token for the repository
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' # Service account created by 'firebase init hosting:github'
           channelId: live # Specifies deployment to the live channel
-          projectId: your-firebase-project-id # Replace with your actual Firebase project ID
+          projectId: twh-pms # Replace with your actual Firebase project ID
