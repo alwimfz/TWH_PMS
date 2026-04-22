@@ -1,0 +1,18 @@
+name: Deploy to Firebase Hosting on merge
+'on':
+  push:
+    branches:
+      - main # This workflow runs when changes are pushed to the 'main' branch
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest # The job will run on a Ubuntu Linux environment
+    steps:
+      - uses: actions/checkout@v4 # Checks out your repository code
+      - run: npm ci && npm run build # Installs dependencies and builds your project (adjust for your build command)
+      - uses: FirebaseExtended/action-hosting-deploy@v0 # Uses the official Firebase Hosting GitHub Action
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}' # GitHub's automatically generated token for the repository
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' # Service account created by 'firebase init hosting:github'
+          channelId: live # Specifies deployment to the live channel
+          projectId: your-firebase-project-id # Replace with your actual Firebase project ID
