@@ -1,3 +1,0 @@
-- name: Run a script
-  run: npm run build
-  
